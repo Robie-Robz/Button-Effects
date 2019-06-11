@@ -12,12 +12,7 @@
         z-index: 1;
         perspective: 20rem;
         &::before{
-            content: "";
-            position: absolute;
-            top:0;
-            left:0;
-            height: 100%;
-            width: 100%;
+            @include before-element;
             border: .2rem solid black;
             z-index: 5;
             transform-origin: bottom;
@@ -51,16 +46,36 @@
             animation-direction: alternate;
 
         }
-        
+    }
+    &--sudden-brake{
+        white-space: nowrap;
+        position: relative;
+        z-index: 1;
+        border: none;
+        &::before{
+            border: .2rem solid black;
+            @include before-element;
+            background-color: aqua;
+            z-index: -1;
+            transform: translateX(-150%) skewX(35deg);
+        }
+        &:hover::before{
+            animation-name: slide;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+            
+        }
+        @keyframes slide{
+            0%{
+                transform: translateX(-150%) skewX(35deg);
+            }
+            80%{
+                transform: translateX(20%) skewX(-30deg);
+            }
+            100%{
+                transform: translateX(0%) skewX(0deg);
+            }
+        }
+    }
     
-    }
-    @keyframes pulse{
-        0%{
-            transform: scale(1);
-        }
-       
-        100%{
-            transform: scale(1.2);
-        }
-    }
 }
