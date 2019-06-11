@@ -55,9 +55,9 @@
         &::before{
             border: .2rem solid black;
             @include before-element;
-            background-color: aqua;
             z-index: -1;
             transform: translateX(-150%) skewX(35deg);
+            opacity: 0;
         }
         &:hover::before{
             animation-name: slide;
@@ -65,17 +65,7 @@
             animation-fill-mode: forwards;
             
         }
-        @keyframes slide{
-            0%{
-                transform: translateX(-150%) skewX(35deg);
-            }
-            80%{
-                transform: translateX(20%) skewX(-30deg);
-            }
-            100%{
-                transform: translateX(0%) skewX(0deg);
-            }
-        }
+       
     }
     
 }

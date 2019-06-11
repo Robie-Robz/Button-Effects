@@ -7,3 +7,19 @@
             transform: scale(1.2);
         }
     }
+
+@keyframes slide{
+            0%{
+            
+                transform: translateX(-150%) skewX(35deg);
+                
+            }
+            80%{
+                transform: translateX(15%) skewX(-30deg);
+            }
+            100%{
+                opacity: 1;
+                transform: translateX(0%) skewX(0deg);
+                
+            }
+        }
