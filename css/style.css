@@ -29,6 +29,10 @@ html {
   cursor: pointer;
   outline: none;
   background-color: transparent; }
+  .button:active {
+    transform: scale(0.98); }
+  .button:active::before {
+    transform: scale(0.7); }
   .button--frame-me {
     border: none;
     position: relative;
@@ -41,6 +45,7 @@ html {
       left: 0;
       height: 100%;
       width: 100%;
+      /*Makes the ::before absolute and positions it over the element*/
       border: .2rem solid black;
       z-index: 5;
       transform-origin: bottom;
@@ -50,10 +55,6 @@ html {
     .button--frame-me:hover::before {
       transform: rotateX(0deg);
       opacity: 1; }
-    .button--frame-me:active {
-      transform: scale(0.98); }
-    .button--frame-me:active::before {
-      transform: scale(0.9); }
   .button--pulse {
     border-radius: 5rem;
     border: .2rem solid black;
@@ -77,6 +78,7 @@ html {
       left: 0;
       height: 100%;
       width: 100%;
+      /*Makes the ::before absolute and positions it over the element*/
       z-index: -1;
       transform: translateX(-150%) skewX(35deg);
       opacity: 0; }
@@ -84,6 +86,19 @@ html {
       animation-name: slide;
       animation-duration: 0.5s;
       animation-fill-mode: forwards; }
+  .button--3d-button {
+    border: .2rem solid black; }
+  .button__3d-container {
+    position: relative;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    perspective: 500px; }
+  .button__3d-text {
+    transform: translateZ(500px);
+    transition: 1s; }
+  .button--3d-button:hover .button__3d-text {
+    transform: translateZ(0); }
 
 .container {
   display: flex;

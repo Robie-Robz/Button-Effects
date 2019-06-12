@@ -5,14 +5,23 @@
     font-weight: 800;
     cursor: pointer;
     outline: none;
-        background-color: transparent;
+    background-color: transparent;
+    
+    &:active{
+            transform: scale(.98);
+        }
+        &:active::before{
+    
+            transform: scale(.7);
+            
+        }
     &--frame-me{
         border: none;
         position: relative;
         z-index: 1;
         perspective: 20rem;
         &::before{
-            @include before-element;
+            @include before-element;/*Makes the ::before absolute and positions it over the element*/
             border: .2rem solid black;
             z-index: 5;
             transform-origin: bottom;
@@ -24,14 +33,7 @@
             transform: rotateX(0deg);
             opacity: 1;
         }
-        &:active{
-            transform: scale(.98);
-        }
-        &:active::before{
-    
-            transform: scale(.9);
-            
-        }
+        
     }
     
     &--pulse{
@@ -54,7 +56,7 @@
         border: none;
         &::before{
             border: .2rem solid black;
-            @include before-element;
+            @include before-element;/*Makes the ::before absolute and positions it over the element*/
             z-index: -1;
             transform: translateX(-150%) skewX(35deg);
             opacity: 0;
@@ -66,6 +68,26 @@
             
         }
        
+    }
+    &--3d-button{
+        border: .2rem solid black;
+    
+    }
+    
+    &__3d-container{
+        position: relative;
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        perspective: 500px;
+    }
+    &__3d-text{
+        transform: translateZ(500px);
+        transition: 1s;
+    }
+    &--3d-button:hover &__3d-text{
+            
+            transform: translateZ(0);
     }
     
 }
