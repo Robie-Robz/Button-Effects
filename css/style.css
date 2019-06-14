@@ -96,9 +96,11 @@ html {
     perspective: 500px; }
   .button__3d-text {
     transform: translateZ(500px);
-    transition: 1s; }
+    transition: 0.2s;
+    opacity: 0; }
   .button--3d-button:hover .button__3d-text {
-    transform: translateZ(0); }
+    transform: translateZ(0);
+    opacity: 1; }
   .button__3d-text:nth-child(1) {
     transition-delay: 0.1s; }
   .button__3d-text:nth-child(2) {
