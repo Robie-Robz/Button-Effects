@@ -117,6 +117,15 @@ html {
     transition-delay: 0.7s; }
   .button__3d-text:nth-child(8) {
     transition-delay: 0.8s; }
+  .button--disperse {
+    border: .2rem solid black;
+    position: relative;
+    z-index: 1; }
+    .button--disperse::before {
+      content: 'click';
+      text-transform: capitalize; }
+    .button--disperse::after {
+      content: 'me!'; }
 
 .container {
   display: flex;
