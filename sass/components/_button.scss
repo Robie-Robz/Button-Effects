@@ -15,6 +15,10 @@
             transform: scale(.7);
             
         }
+    
+    
+    
+   /*Frame me button*/
     &--frame-me{
         border: none;
         position: relative;
@@ -36,6 +40,9 @@
         
     }
     
+    
+    
+    /*Pulse button*/
     &--pulse{
         border-radius: 5rem;
         border: .2rem solid black;
@@ -49,6 +56,11 @@
 
         }
     }
+    
+    /*Sudden brake button*/
+    
+    
+    
     &--sudden-brake{
         white-space: nowrap;
         position: relative;
@@ -69,6 +81,11 @@
         }
        
     }
+    
+    /*3D button*/
+    
+    
+    
     &--3d-button{
         border: .2rem solid black;
     
@@ -82,9 +99,10 @@
         perspective: 500px;
     }
     &__3d-text{
+        opacity:0;
         transform: translateZ(500px);
         transition: 0.2s;
-        opacity:0;
+        
     
     }
     &--3d-button:hover &__3d-text{
@@ -117,6 +135,10 @@
             transition-delay:0.8s;    
     }
     
+        
+    /*Flip button*/
+        
+        
     &--flip{
             border:none; 
             position:relative;
@@ -130,7 +152,10 @@
                 transform:rotateY(180deg) ;
             }
         &:active{
-                transform:rotateY(180deg) scale(.98) ;
+            transform:rotateY(180deg) scale(.98);
+        }
+        &:active::before{
+                transform: scale(.98) ;
             }
     }
     

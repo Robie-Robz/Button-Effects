@@ -28,7 +28,12 @@ html {
   font-weight: 800;
   cursor: pointer;
   outline: none;
-  background-color: transparent; }
+  background-color: transparent;
+  /*Frame me button*/
+  /*Pulse button*/
+  /*Sudden brake button*/
+  /*3D button*/
+  /*Flip button*/ }
   .button:active {
     transform: scale(0.98); }
   .button:active::before {
@@ -95,9 +100,9 @@ html {
     justify-content: center;
     perspective: 500px; }
   .button__3d-text {
+    opacity: 0;
     transform: translateZ(500px);
-    transition: 0.2s;
-    opacity: 0; }
+    transition: 0.2s; }
   .button--3d-button:hover .button__3d-text {
     transform: translateZ(0);
     opacity: 1; }
@@ -133,6 +138,8 @@ html {
       transform: rotateY(180deg); }
     .button--flip:active {
       transform: rotateY(180deg) scale(0.98); }
+    .button--flip:active::before {
+      transform: scale(0.98); }
 
 .container {
   display: flex;
