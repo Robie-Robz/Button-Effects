@@ -117,15 +117,22 @@ html {
     transition-delay: 0.7s; }
   .button__3d-text:nth-child(8) {
     transition-delay: 0.8s; }
-  .button--disperse {
-    border: .2rem solid black;
-    position: relative;
-    z-index: 1; }
-    .button--disperse::before {
-      content: 'click';
-      text-transform: capitalize; }
-    .button--disperse::after {
-      content: 'me!'; }
+  .button--flip {
+    border: none;
+    position: relative; }
+    .button--flip::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      border: .2rem solid black;
+      border-radius: 5rem; }
+    .button--flip:hover {
+      transform: rotateY(180deg); }
+    .button--flip:active {
+      transform: rotateY(180deg) scale(0.98); }
 
 .container {
   display: flex;

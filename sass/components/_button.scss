@@ -117,20 +117,23 @@
             transition-delay:0.8s;    
     }
     
-    &--disperse{
-            border:.2rem solid black;
+    &--flip{
+            border:none; 
             position:relative;
-            z-index:1;
-        
         &::before{
-            content:'click';
-            text-transform:capitalize;
+            @include pseudo-element;
+            border:.2rem solid black;
+            border-radius:5rem;
         }
-        &::after{
-            content:'me!';
-         
-        }
+        
+        &:hover{
+                transform:rotateY(180deg) ;
+            }
+        &:active{
+                transform:rotateY(180deg) scale(.98) ;
+            }
     }
+    
         
     
 }
