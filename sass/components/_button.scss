@@ -5,14 +5,18 @@
     font-weight: 800;
     cursor: pointer;
     outline: none;
+    border:none; 
     background-color: transparent;
+  
+    position:relative;
+    z-index: 1;
     
     &:active{
             transform: scale(.98);
         }
-        &:active::before{
+    &:active::before{
     
-            transform: scale(.7);
+            transform: scale(.98);
             
         }
     
@@ -20,18 +24,16 @@
     
    /*Frame me button*/
     &--frame-me{
-        border: none;
-        position: relative;
-        z-index: 1;
+  
         perspective: 20rem;
         &::before{
             @include pseudo-element;/*Makes the ::before absolute and positions it over the element*/
             border: .2rem solid black;
-            z-index: 5;
             transform-origin: bottom;
             transform: rotateX(-90deg);
             transition: all .3s;
             opacity: 0;
+            
         }
         &:hover::before{
             transform: rotateX(0deg);
@@ -46,14 +48,13 @@
     &--pulse{
         border-radius: 5rem;
         border: .2rem solid black;
-        position: relative;
-        z-index: 1;
+
         &:hover{
             animation-name: pulse; 
             animation-duration: 0.5s;
             animation-iteration-count: infinite;
             animation-direction: alternate;
-
+           
         }
     }
     
@@ -63,21 +64,21 @@
     
     &--sudden-brake{
         white-space: nowrap;
-        position: relative;
-        z-index: 1;
-        border: none;
+
+  
         &::before{
             border: .2rem solid black;
             @include pseudo-element;/*Makes the ::before absolute and positions it over the element*/
-            z-index: -1;
             transform: translateX(-150%) skewX(35deg);
             opacity: 0;
+            display: none; /*To remove the ::before element so as to prevent unwanted triggering of the animation*/
         }
         &:hover::before{
+            display: block; /*To bring the element back*/
             animation-name: slide;
             animation-duration: 0.5s;
             animation-fill-mode: forwards;
-            
+          
         }
        
     }
@@ -96,67 +97,68 @@
         list-style: none;
         display: flex;
         justify-content: center;
-        perspective: 500px;
+        perspective: 1000px;
+        z-index: -1;
+           
     }
     &__3d-text{
         opacity:0;
         transform: translateZ(500px);
         transition: 0.2s;
         
+        &:nth-child(1){
+            transition-delay:0.1s;    
+        }
+        &:nth-child(2){
+            transition-delay:0.2s;    
+        }
+        &:nth-child(3){
+            transition-delay:0.3s;    
+        }
+        &:nth-child(4){
+            transition-delay:0.4s;    
+        }
+        &:nth-child(5){
+            transition-delay:0.5s;    
+        }
+        &:nth-child(6){
+            transition-delay:0.6s;    
+        }
+        &:nth-child(7){
+            transition-delay:0.7s;    
+        }
+        &:nth-child(8){
+            transition-delay:0.8s;    
+        }
     
     }
     &--3d-button:hover &__3d-text{
-            
-            transform: translateZ(0);
             opacity:1;
+            transform: translateZ(0);
     }
-    &__3d-text:nth-child(1){
-            transition-delay:0.1s;    
-    }
-    &__3d-text:nth-child(2){
-            transition-delay:0.2s;    
-    }
-    &__3d-text:nth-child(3){
-            transition-delay:0.3s;    
-    }
-    &__3d-text:nth-child(4){
-            transition-delay:0.4s;    
-    }
-    &__3d-text:nth-child(5){
-            transition-delay:0.5s;    
-    }
-    &__3d-text:nth-child(6){
-            transition-delay:0.6s;    
-    }
-    &__3d-text:nth-child(7){
-            transition-delay:0.7s;    
-    }
-    &__3d-text:nth-child(8){
-            transition-delay:0.8s;    
-    }
+    
     
         
     /*Flip button*/
         
         
     &--flip{
-            border:none; 
-            position:relative;
+            
+         
         &::before{
             @include pseudo-element;
             border:.2rem solid black;
             border-radius:5rem;
+            
         }
         
         &:hover{
-                transform:rotateY(180deg) ;
-            }
+            transform:rotateY(180deg) ;
+        }
         &:active{
             transform:rotateY(180deg) scale(.98);
         }
-        &:active::before{
-                transform: scale(.98) ;
-            }
+       
     }
     
         

@@ -1,0 +1,145 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%; }
+
+@keyframes pulse {
+  0% {
+    transform: scale(1); }
+  100% {
+    transform: scale(1.2); } }
+
+@keyframes slide {
+  0% {
+    transform: translateX(-150%) skewX(35deg); }
+  80% {
+    transform: translateX(15%) skewX(-30deg); }
+  100% {
+    opacity: 1;
+    transform: translateX(0%) skewX(0deg); } }
+
+.button {
+  font-size: 2.4rem;
+  margin-bottom: 5rem;
+  padding: 2rem;
+  font-weight: 800;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  position: relative;
+  z-index: 1;
+  /*Frame me button*/
+  /*Pulse button*/
+  /*Sudden brake button*/
+  /*3D button*/
+  /*Flip button*/ }
+  .button:active {
+    transform: scale(0.98); }
+  .button:active::before {
+    transform: scale(0.98); }
+  .button--frame-me {
+    perspective: 20rem; }
+    .button--frame-me::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      /*Makes the ::before absolute and positions it over the element*/
+      border: .2rem solid black;
+      transform-origin: bottom;
+      transform: rotateX(-90deg);
+      transition: all .3s;
+      opacity: 0; }
+    .button--frame-me:hover::before {
+      transform: rotateX(0deg);
+      opacity: 1; }
+  .button--pulse {
+    border-radius: 5rem;
+    border: .2rem solid black; }
+    .button--pulse:hover {
+      animation-name: pulse;
+      animation-duration: 0.5s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate; }
+  .button--sudden-brake {
+    white-space: nowrap; }
+    .button--sudden-brake::before {
+      border: .2rem solid black;
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      /*Makes the ::before absolute and positions it over the element*/
+      transform: translateX(-150%) skewX(35deg);
+      opacity: 0;
+      display: none;
+      /*To remove the ::before element so as to prevent unwanted triggering of the animation*/ }
+    .button--sudden-brake:hover::before {
+      display: block;
+      /*To bring the element back*/
+      animation-name: slide;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards; }
+  .button--3d-button {
+    border: .2rem solid black; }
+  .button__3d-container {
+    position: relative;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    perspective: 1000px;
+    z-index: -1; }
+  .button__3d-text {
+    opacity: 0;
+    transform: translateZ(500px);
+    transition: 0.2s; }
+    .button__3d-text:nth-child(1) {
+      transition-delay: 0.1s; }
+    .button__3d-text:nth-child(2) {
+      transition-delay: 0.2s; }
+    .button__3d-text:nth-child(3) {
+      transition-delay: 0.3s; }
+    .button__3d-text:nth-child(4) {
+      transition-delay: 0.4s; }
+    .button__3d-text:nth-child(5) {
+      transition-delay: 0.5s; }
+    .button__3d-text:nth-child(6) {
+      transition-delay: 0.6s; }
+    .button__3d-text:nth-child(7) {
+      transition-delay: 0.7s; }
+    .button__3d-text:nth-child(8) {
+      transition-delay: 0.8s; }
+  .button--3d-button:hover .button__3d-text {
+    opacity: 1;
+    transform: translateZ(0); }
+  .button--flip::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border: .2rem solid black;
+    border-radius: 5rem; }
+  .button--flip:hover {
+    transform: rotateY(180deg); }
+  .button--flip:active {
+    transform: rotateY(180deg) scale(0.98); }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 25rem;
+  margin: 3rem auto;
+  max-height: 100vh; }
